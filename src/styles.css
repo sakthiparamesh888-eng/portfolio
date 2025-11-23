@@ -1418,3 +1418,33 @@ body {
       caret 0.7s step-end infinite;
   }
 }
+.modal-body-content {
+  color: rgba(255, 255, 255, 0.95) !important;
+  line-height: 1.7 !important;
+  font-size: 18px !important;
+}
+.modal-project-title {
+  color: #ffffff !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  margin-bottom: 15px !important;
+}
+.modal-tags-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px !important;
+}
+.modal-links {
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: 25px !important;
+  flex-wrap: wrap !important;
+}
+
+.modal-links .btn {
+  padding: 10px 20px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+}

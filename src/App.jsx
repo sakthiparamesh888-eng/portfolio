@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowDown,
@@ -36,8 +37,9 @@ const projects = [
     tech: ["React", "Node.js", "Express", "MySQL", "Socket.io"],
     role: "Fullstack Developer",
     tags: ["Real-Time", "Gaming", "Web App"],
-    github: "https://github.com/yourusername/game-booking-app",
-    demo: "https://game-booking-demo.com",
+    github:
+      "https://github.com/sakthiparamesh888-eng/pk-gaming-freefire-tournaments.git",
+    demo: "https://pk-gaming-freefire-tournaments.vercel.app/",
   },
 
   {
@@ -49,8 +51,8 @@ const projects = [
     tech: ["React", "Node.js", "Express", "MongoDB", "WebSockets"],
     role: "Fullstack Developer",
     tags: ["FoodTech", "Real-Time", "Dashboard"],
-    github: "https://github.com/yourusername/cloud-kitchen-app",
-    demo: "https://cloud-kitchen-demo.com",
+    github: "https://github.com/sakthiparamesh888-eng/cloudkitchen.git",
+    demo: "https://cloudkitchen-eslm.vercel.app/",
   },
 
   {
@@ -62,8 +64,8 @@ const projects = [
     tech: ["React", "Node.js", "Express", "MySQL", "Framer Motion"],
     role: "Fullstack Developer",
     tags: ["E-Commerce", "Fullstack", "Real-Time"],
-    github: "https://github.com/yourusername/grocery-app",
-    demo: "https://grocery-app-demo.com",
+    github: "https://github.com/sakthiparamesh888-eng/mywebsite.git",
+    demo: "https://mrvegetableandfruits.netlify.app/",
   },
 
   {
@@ -75,13 +77,13 @@ const projects = [
     tech: ["Python", "Machine Learning", "Pandas", "NumPy", "Broker API"],
     role: "AI & Automation Developer",
     tags: ["AI", "Automation", "Trading"],
-    github: "https://github.com/yourusername/ai-trading-bot",
+    github:
+      "https://github.com/sakthiparamesh888-eng/AI-AUTOMATED-TRADING.git",
     demo: "https://ai-trading-demo.com",
   },
 ];
 
-
-export default function Portfolio() {
+function App() {
   const [navScrolled, setNavScrolled] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -137,6 +139,9 @@ export default function Portfolio() {
     card.style.setProperty("--tiltX", "0deg");
     card.style.setProperty("--tiltY", "0deg");
   };
+
+  const modalRoot =
+    typeof document !== "undefined" ? document.body : null;
 
   return (
     <div className="bg-dark-main text-white no-overflow cyber-bg">
@@ -211,7 +216,8 @@ export default function Portfolio() {
                   SAKTHI
                 </span>
                 <span className="hero-role typing-effect">
-                   FULL STACK AND AI DEVELOPER
+                  {" "}
+                  FULL STACK AND AI DEVELOPER
                 </span>
               </motion.h1>
 
@@ -252,7 +258,10 @@ export default function Portfolio() {
                 <a href="#projects" className="btn btn-info glow-btn">
                   View Projects
                 </a>
-                <a href="#contact" className="btn btn-outline-info glow-outline">
+                <a
+                  href="#contact"
+                  className="btn btn-outline-info glow-outline"
+                >
                   Contact Me
                 </a>
               </motion.div>
@@ -348,17 +357,20 @@ export default function Portfolio() {
             viewport={{ once: true, amount: 0.4 }}
           >
             <p className="fs-5">
-              I am a final-year IT student at Chennai Institute of Technology, specializing
-  in Full Stack Development and Artificial Intelligence. I build modern,
-  real-time web applications and intelligent AI-driven projects with a strong
-  focus on performance, UI/UX, and scalability.
+              I am a final-year IT student at Chennai Institute of Technology,
+              specializing in Full Stack Development and Artificial Intelligence.
+              I build modern, real-time web applications and intelligent
+              AI-driven projects with a strong focus on performance, UI/UX, and
+              scalability.
             </p>
             <p>
-              My experience spans across React, Node.js, Express, MySQL, MongoDB, and Python.
-  Along with development, I also have hands-on cybersecurity knowledge, including
-  web application testing, phishing simulations, WiFi security analysis, and ethical
-  exploitation workflows. I’ve developed and deployed multiple full-stack applications,
-  integrating security best practices and real-time system behavior.
+              My experience spans across React, Node.js, Express, MySQL,
+              MongoDB, and Python. Along with development, I also have hands-on
+              cybersecurity knowledge, including web application testing,
+              phishing simulations, WiFi security analysis, and ethical
+              exploitation workflows. I’ve developed and deployed multiple
+              full-stack applications, integrating security best practices and
+              real-time system behavior.
             </p>
           </motion.div>
 
@@ -378,16 +390,19 @@ export default function Portfolio() {
               <div className="about-stats-grid">
                 <div className="about-stat">
                   <span className="label">Focus</span>
-                  <span className="value">  Web Applications & AI Implementations</span>
+                  <span className="value">
+                    {" "}
+                    Web Applications & AI Implementations
+                  </span>
                 </div>
                 <div className="about-stat">
                   <span className="label">Based In</span>
-                  <span className="value">  Real-Time Problems</span>
+                  <span className="value"> Real-Time Problems</span>
                 </div>
                 <div className="about-stat">
                   <span className="label">Goal </span>
-                  <span className="value"> 
-                        Build and secure high-impact products
+                  <span className="value">
+                    Build and secure high-impact products
                   </span>
                 </div>
               </div>
@@ -570,13 +585,12 @@ export default function Portfolio() {
                 collaboration opportunities.
               </p>
               <a
-  href="/resume.pdf"
-  download="Sakthi_Resume.pdf"
-  className="btn btn-info px-4 py-2 fw-bold glow-btn"
->
-  Download Resume
-</a>
-
+                href="/resume.pdf"
+                download="Sakthi_Resume.pdf"
+                className="btn btn-info px-4 py-2 fw-bold glow-btn"
+              >
+                Download Resume
+              </a>
             </div>
           </motion.div>
         </div>
@@ -654,120 +668,127 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* PROJECT MODAL – Cyber Neon (M2) */}
-      <AnimatePresence>
-        {isModalOpen && activeProject && (
-          <motion.div
-            className="project-modal-backdrop"
-            onClick={closeProjectModal}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="project-modal hologram-modal laser-frame glass-panel glitch-layer"
-              onClick={(e) => e.stopPropagation()}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                transition: { duration: 0.35 },
-              }}
-              exit={{
-                opacity: 0,
-                scale: 0.9,
-                y: 20,
-                transition: { duration: 0.25 },
-              }}
-            >
-              {/* Header strip */}
-              <div className="modal-header-bar">
-                <span className="status-dot red" />
-                <span className="status-dot yellow" />
-                <span className="status-dot green" />
-                <span className="modal-title-text">
-                  PROJECT_LOG &gt; {activeProject.title}
-                </span>
-                <button
-                  className="modal-close-btn"
-                  onClick={closeProjectModal}
-                  aria-label="Close"
+      {/* PROJECT MODAL – via PORTAL so it’s perfectly centered & above everything */}
+      {modalRoot &&
+        createPortal(
+          <AnimatePresence>
+            {isModalOpen && activeProject && (
+              <motion.div
+                className="project-modal-backdrop"
+                onClick={closeProjectModal}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <motion.div
+                  className="project-modal hologram-modal laser-frame glass-panel glitch-layer"
+                  onClick={(e) => e.stopPropagation()}
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    transition: { duration: 0.35 },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0.9,
+                    y: 20,
+                    transition: { duration: 0.25 },
+                  }}
                 >
-                  <X size={18} />
-                </button>
-              </div>
-
-              {/* Body */}
-              <div className="modal-body-content">
-                <h3
-                  className="modal-project-title glitch-text-strong"
-                  data-text={activeProject.title}
-                >
-                  {activeProject.title}
-                </h3>
-
-                {/* Tags row */}
-                {activeProject.tags && (
-                  <div className="mb-3 modal-tags-row">
-                    {activeProject.tags.map((tag) => (
-                      <span key={tag} className="project-tag">
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Header strip */}
+                  <div className="modal-header-bar">
+                    <span className="status-dot red" />
+                    <span className="status-dot yellow" />
+                    <span className="status-dot green" />
+                    <span className="modal-title-text">
+                      PROJECT_LOG &gt; {activeProject.title}
+                    </span>
+                    <button
+                      className="modal-close-btn"
+                      onClick={closeProjectModal}
+                      aria-label="Close"
+                    >
+                      <X size={18} />
+                    </button>
                   </div>
-                )}
 
-                <p className="modal-main-desc">{activeProject.details}</p>
+                  {/* Body */}
+                  <div className="modal-body-content" style={{ color: "rgba(255,255,255,0.95)" }}>
+  <h3
+    className="modal-project-title glitch-text-strong"
+    data-text={activeProject.title}
+  >
+    {activeProject.title}
+  </h3>
 
-                <p className="modal-role-line">
-                  <span className="label">Role:</span> {activeProject.role}
-                </p>
+  {/* Tags row */}
+  {activeProject.tags && (
+    <div className="mb-3 modal-tags-row">
+      {activeProject.tags.map((tag) => (
+        <span key={tag} className="project-tag">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
 
-                <div className="modal-tech-stack">
-                  <span className="label">Stack:</span>
-                  <div className="tech-chips">
-                    {activeProject.tech.map((t) => (
-                      <span key={t} className="tech-chip">
-                        {t}
-                      </span>
-                    ))}
+  <p className="modal-main-desc">{activeProject.details}</p>
+
+  <p className="modal-role-line">
+    <span className="label">Role:</span> {activeProject.role}
+  </p>
+
+  <div className="modal-tech-stack">
+    <span className="label">Stack:</span>
+    <div className="tech-chips">
+      {activeProject.tech.map((t) => (
+        <span key={t} className="tech-chip">
+          {t}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  {/* Quick actions */}
+  <div className="modal-links">
+    <a
+      href={activeProject.github}
+      className="btn btn-sm btn-outline-info glow-outline"
+      target="_blank"
+      rel="noreferrer"
+    >
+      GitHub Repo
+    </a>
+    <a
+      href={activeProject.demo}
+      className="btn btn-sm btn-info glow-btn"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Live Demo
+    </a>
+  </div>
+</div>
+
+
+                  {/* Footer strip */}
+                  <div className="modal-footer-bar">
+                    <span className="footer-text">
+                      STATUS: <span className="accent">RUNNING</span> • MODE:{" "}
+                      <span className="accent">CYBER-NEON-HOLOGRAM</span>
+                    </span>
+                    <span className="scan-line" />
                   </div>
-                </div>
-
-                {/* Quick actions */}
-                <div className="modal-links">
-                  <a
-                    href={activeProject.github}
-                    className="btn btn-sm btn-outline-info glow-outline"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub Repo
-                  </a>
-                  <a
-                    href={activeProject.demo}
-                    className="btn btn-sm btn-info glow-btn"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Live Demo
-                  </a>
-                </div>
-              </div>
-
-              {/* Footer strip */}
-              <div className="modal-footer-bar">
-                <span className="footer-text">
-                  STATUS: <span className="accent">RUNNING</span> • MODE:{" "}
-                  <span className="accent">CYBER-NEON-HOLOGRAM</span>
-                </span>
-                <span className="scan-line" />
-              </div>
-            </motion.div>
-          </motion.div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          modalRoot
         )}
-      </AnimatePresence>
     </div>
   );
 }
+
+export default App;
