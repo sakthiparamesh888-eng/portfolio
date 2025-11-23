@@ -570,7 +570,7 @@ export default function Portfolio() {
                 collaboration opportunities.
               </p>
               <a
-  href="/mnt/data/Resume-Sakthi.pdf"
+  href="/resume.pdf"
   download="Sakthi_Resume.pdf"
   className="btn btn-info px-4 py-2 fw-bold glow-btn"
 >
