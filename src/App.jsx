@@ -761,14 +761,7 @@ function App() {
     >
       GitHub Repo
     </a>
-    <a
-      href={activeProject.demo}
-      className="btn btn-sm btn-info glow-btn"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Live Demo
-    </a>
+    
   </div>
 </div>
 
